@@ -1,3 +1,4 @@
+import random
 class TV:
     def __init__(self, volume=0, channel=0, is_on=False):
         self.is_on = is_on
@@ -29,6 +30,16 @@ class TV:
     def on(self):
         self.is_on = not self.is_on
         print("is_on", self.is_on)
+    def mom(self):
+        if random.randint(0, 1):
+            self.is_on = False
+            self.volume = 0
+            self.channel = 0
+            self.mode = self.mode_list[0]
+        else:
+            print("mongdungeee ZZimZill!")
+            
+        
     def __str__(self):
         return f"TV is {'is_on' if self.is_on else 'off'}, volume: {self.volume}, channel: {self.channel}, mode: {self.mode}"
     
