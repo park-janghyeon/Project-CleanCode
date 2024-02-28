@@ -30,7 +30,6 @@ class TV {
                 channel = channelMin;
             cout << "Channel : " << channel << '\n';
         }
-        
     }
 
     void decreaseChannel(void) 
@@ -66,15 +65,14 @@ class TV {
     void changeMode(void)
     {
         int input;
+
         cout << "Change Mode\n";
         for (int i = 0; i < 6; i++)
         {
             cout << i + 1 << ". " << inputMode[i]  << " ";
         }
-
         cin >> input;
         input--;
-        
         if (power && input >= 0 && input <= 5)
         {
             curInputMode = inputMode[input];
@@ -83,5 +81,4 @@ class TV {
         else
             cout << "FATAL: Wrong Input\n";
     }
-
 };
