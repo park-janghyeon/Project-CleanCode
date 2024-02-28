@@ -21,6 +21,7 @@ namespace GDSC_Day1
         RGB,
         DVI,
         Thunderbold,
+        DisplayPort,
         USB_C,
     }
 
