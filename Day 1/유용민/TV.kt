@@ -26,12 +26,14 @@ class TV {
         }else{
             tvMode = TV_INPUT_MODE.HDMI_1
         }
+        return tvMode
     }
 
     fun channelChange(val target) {
         if(0 <= target && target <= TV_CHANNEL_MAX) {
             tvChannel = target
         }
+        return tvChannel
     }
 
     fun channelDown() {
@@ -40,6 +42,7 @@ class TV {
         } else {
             tvChannel = TV_CHANNEL_MAX
         }
+        return tvChannel
     }
 
     fun channelUp() {
@@ -48,6 +51,7 @@ class TV {
         } else {
             tvChannel = 0
         }
+        return tvChannel
     }
 
     fun powerOff() {
@@ -66,11 +70,13 @@ class TV {
         if(tvVolume > 0) {
             tvVolume--
         }
+        return tvVolume
     }
 
     fun volumeUp() {
         if(tvVolume < TV_VOLUME_MAX) {
             tvVolume++
         }
+        return tvVolume
     }
 }
