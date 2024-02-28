@@ -13,16 +13,16 @@ class TV {
     string inputMode[6] = {"SkyLife", "HDMI1", "HDMI2", "USB", "USB-C", "Screen Mirroring"};
     string curInputMode = inputMode[0];
 
-    void powerToggle()
+    void powerToggle(void)
     {
         power = !power;
         if (power)
             cout << "Power On\n" << "Channel : " << channel << "\nVolume : " << volume << '\n';
     }
 
-    void increaseChannel()
+    void increaseChannel(void)
     {  
-        if(power)
+        if (power)
         {
             if (channel >= channelMin && channel < channelMax)
                 channel++;
@@ -33,7 +33,7 @@ class TV {
         
     }
 
-    void decreaseChannel() 
+    void decreaseChannel(void) 
     {
         if(power)
         {
@@ -45,7 +45,7 @@ class TV {
         }
     }
 
-    void increaseVolume() 
+    void increaseVolume(void) 
     {
         if (power && volume < volumeMax) 
         {
@@ -54,7 +54,7 @@ class TV {
         }
     }
 
-    void decreaseVolume()
+    void decreaseVolume(void)
     {
         if (power && volume > volumeMin)
         {
@@ -63,7 +63,7 @@ class TV {
         }
     }
 
-    void changeMode(int modeIdx)
+    void changeMode(void)
     {
         int input;
         cout << "Change Mode\n";
@@ -75,7 +75,7 @@ class TV {
         cin >> input;
         input--;
         
-        if(power && input >= 0 && input <= 5)
+        if (power && input >= 0 && input <= 5)
         {
             curInputMode = inputMode[input];
             cout << "Mode changed to " << inputMode[input] << '\n';
