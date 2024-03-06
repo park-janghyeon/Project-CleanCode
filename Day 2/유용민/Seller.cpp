@@ -30,6 +30,10 @@ public:
         long long total_price = 0;
 
         for(auto iter_buy = buy_list.begin(); iter_buy != buy_list.end(); iter_buy++){
+            if(iter_buy->second < 0){
+                continue;
+            }
+
             string cur_product = iter_buy->first;
             for(auto iter_stock = stock_list.begin(); iter_stock != stock_list.end(); iter_stock++){
                 if(cur_product.compare(iter_stock->first) == 0
@@ -44,6 +48,11 @@ public:
     }
 
     long long insert_stock(string product, long long count){
+        if(count < 0){
+            return -1;
+        }
+
         stock_list[product] += count;
+        return stock_list[product];
     }
 }
