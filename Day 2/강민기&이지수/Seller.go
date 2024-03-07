@@ -1,5 +1,3 @@
-// You can edit this code!
-// Click here and start typing.
 package main
 
 import "fmt"
@@ -31,8 +29,14 @@ func (s Seller) getTotalPrice(purchaseList map[string]int) float64 {
 
 	for name, quantity := range purchaseList {
 		if stock, ok := s.stockList[name]; ok {
+			availableQuantity := stock[0].(int)
 			price := stock[1].(float64)
-			totalPrice += float64(quantity) * price
+			// 구매수량이 재고보다 많은 경우 처리
+			if quantity <= availableQuantity { 
+				totalPrice += float64(quantity) * price 
+			} else { 
+				totalPrice += float64(availableQuantity) * price
+			}
 		}
 	}
 
@@ -49,5 +53,5 @@ func main() {
 		"QWER": 3,
 	}
 	totalPrice := seller.getTotalPrice(purchaseList)
-	fmt.Println("Total Price:", totalPrice) // 출력값: Total Price: 55
+	fmt.Println("Total Price:", totalPrice)
 }
